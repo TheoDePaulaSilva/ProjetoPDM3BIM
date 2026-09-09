@@ -56,7 +56,7 @@ class StepTrackerService : Service(), SensorEventListener {
 
     private fun saveStepsIfNeeded() {
         val diff = currentSteps - lastSavedSteps
-        if (diff >= 10) { // Save every 10 steps to Room
+        if (diff >= 10) {
             serviceScope.launch {
                 repository.addSteps(diff)
                 lastSavedSteps = currentSteps

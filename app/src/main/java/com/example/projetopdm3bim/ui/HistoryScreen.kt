@@ -26,10 +26,8 @@ import com.patrykandpatrick.vico.core.common.shape.CorneredShape
 import com.example.projetopdm3bim.data.DayStepCount
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
-
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import kotlin.math.roundToInt
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
@@ -44,7 +42,7 @@ fun HistoryScreen(viewModel: StepViewModel) {
         if (historyList.isNotEmpty()) {
             modelProducer.runTransaction {
                 columnSeries {
-                    series(historyList.map { (it as com.example.projetopdm3bim.data.DayStepCount).totalSteps.toFloat() })
+                    series(historyList.map { (it as DayStepCount).totalSteps.toFloat() })
                 }
             }
         }
@@ -82,7 +80,7 @@ fun HistoryScreen(viewModel: StepViewModel) {
                             val index = v.toInt()
                             if (index >= 0 && index < historyList.size) {
                                 try {
-                                    val dateStr = (historyList[index] as com.example.projetopdm3bim.data.DayStepCount).day
+                                    val dateStr = (historyList[index] as DayStepCount).day
                                     val date = LocalDate.parse(dateStr)
                                     date.format(labelFormatter)
                                 } catch (e: Exception) {
@@ -112,14 +110,14 @@ fun HistoryScreen(viewModel: StepViewModel) {
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     val date = try {
-                        val dateStr = (item as com.example.projetopdm3bim.data.DayStepCount).day
+                        val dateStr = (item as DayStepCount).day
                         LocalDate.parse(dateStr).format(labelFormatter)
                     } catch (e: Exception) {
-                        (item as com.example.projetopdm3bim.data.DayStepCount).day
+                        (item as DayStepCount).day
                     }
                     Text(text = date)
                     Text(
-                        text = "${(item as com.example.projetopdm3bim.data.DayStepCount).totalSteps} %s".format(stringResource(R.string.steps_unit)),
+                        text = "${(item as DayStepCount).totalSteps} %s".format(stringResource(R.string.steps_unit)),
                         fontWeight = FontWeight.Bold
                     )
                 }

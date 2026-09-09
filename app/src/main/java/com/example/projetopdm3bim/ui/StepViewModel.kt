@@ -15,8 +15,6 @@ import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
 import com.example.projetopdm3bim.data.DayStepCount
-import kotlinx.coroutines.flow.*
-import kotlinx.coroutines.launch
 import java.util.Calendar
 
 class StepViewModel(application: Application) : AndroidViewModel(application), SensorEventListener {
@@ -72,8 +70,7 @@ class StepViewModel(application: Application) : AndroidViewModel(application), S
     }
 
     private fun calculateMetrics() {
-        distance.value = stepsToday.value * stride.value / 1000f // km
-        // Basic calorie estimation: steps * 0.04
+        distance.value = stepsToday.value * stride.value / 1000f 
         calories.value = stepsToday.value * 0.04f
     }
 
@@ -82,7 +79,6 @@ class StepViewModel(application: Application) : AndroidViewModel(application), S
             val now = System.currentTimeMillis()
             detectionTimes.add(now)
             
-            // Keep only last 10 seconds for SPM
             detectionTimes.removeAll { it < now - 10000 }
             
             if (detectionTimes.size > 1) {

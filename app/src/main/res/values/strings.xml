@@ -1,12 +1,8 @@
 <resources>
     <string name="app_name">Pedômetro &amp; Ritmo</string>
-
-    <!-- Navigation -->
     <string name="nav_home">Início</string>
     <string name="nav_history">Histórico</string>
     <string name="nav_profile">Perfil</string>
-
-    <!-- Dashboard -->
     <string name="steps_today">Passos Hoje</string>
     <string name="distance">Distância</string>
     <string name="calories">Calorias</string>
@@ -15,14 +11,10 @@
     <string name="km_unit">km</string>
     <string name="kcal_unit">kcal</string>
     <string name="spm_unit">SPM</string>
-
-    <!-- History -->
     <string name="weekly_evolution">Evolução Semanal</string>
     <string name="no_data">Sem dados de atividade nos últimos 7 dias.</string>
     <string name="daily_stats">Estatísticas Diárias</string>
     <string name="steps_unit">passos</string>
-
-    <!-- Profile -->
     <string name="user_profile">Perfil do Usuário</string>
     <string name="height_label">Altura (cm)</string>
     <string name="weight_label">Peso (kg)</string>

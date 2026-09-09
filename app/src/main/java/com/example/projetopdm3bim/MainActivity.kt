@@ -60,7 +60,6 @@ fun MainApp() {
     val navController = rememberNavController()
     val viewModel: StepViewModel = viewModel()
     
-    // Observar a rota atual para atualizar o estado do menu inferior
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentDestination = navBackStackEntry?.destination
 
